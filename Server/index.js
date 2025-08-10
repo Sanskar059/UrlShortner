@@ -13,11 +13,22 @@ dotenv.config();
 const app = express();
 
 // Middleware
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://urlshortner-6-50bx.onrender.com"
+];
+
 app.use(
   cors({
-   
-    origin: "*", // explicit origin for credentials
-    credentials: true
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true); // allow REST tools or server-to-server calls with no origin
+      if (allowedOrigins.includes(origin)) {
+        callback(null, origin); // Reflect the request origin back in the response
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
   })
 );
 app.use(express.json());
