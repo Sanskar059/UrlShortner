@@ -6,7 +6,7 @@ export default function ShortenerPage() {
   const navigate = useNavigate()
   const [shortUrl, setShortUrl] = useState("");
   const [loading, setLoading] = useState(false);
-  const backendBase = "http://localhost:8000/url";
+  const backendBase = "https://urlshortner-3-pq72.onrender.com/url";
    // Change if your backend runs elsewhere
 const handle = ()=>{
     navigate("/all")
@@ -30,7 +30,7 @@ const handle = ()=>{
 
       const data = await res.json();
       // Assuming backend returns { shortId: "abc123" }
-      setShortUrl(`http://localhost:8000/${data.shortId}`);
+      setShortUrl(`https://urlshortner-3-pq72.onrender.com/${data.shortId}`);
     } catch (err) {
       console.error(err);
       alert("Error creating short URL");

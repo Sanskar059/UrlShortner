@@ -14,7 +14,7 @@ export default function Signup() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8000/api/user/signup", form);
+      const res = await axios.post("https://urlshortner-3-pq72.onrender.com/api/user/signup", form);
       setMessage(res.data);
       navigate("/");
     } catch (err) {

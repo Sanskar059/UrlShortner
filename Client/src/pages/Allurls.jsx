@@ -5,7 +5,7 @@ function Allurls() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:8000/url/my-urls", {
+    fetch("https://urlshortner-3-pq72.onrender.com/url/my-urls", {
       method: "GET",
       credentials: "include", // sends cookies/JWT
     })
@@ -41,11 +41,11 @@ function Allurls() {
               </a>{" "}
               - Short:{" "}
               <a
-                href={`http://localhost:8000/${url.shortedURL}`}
+                href={`https://urlshortner-3-pq72.onrender.com/${url.shortedURL}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                http://localhost:8000/{url.shortedURL}
+               https://urlshortner-3-pq72.onrender.com/{url.shortedURL}
               </a>{" "}
               (   {url.clicks} clicks)
             

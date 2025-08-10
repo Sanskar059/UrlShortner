@@ -15,7 +15,7 @@ export default function Login() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8000/api/user/login", form, {
+      const res = await axios.post("https://urlshortner-3-pq72.onrender.com/api/user/login", form, {
         withCredentials: true, // so cookies are stored
       });
       setMessage(res.data);
