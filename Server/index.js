@@ -15,7 +15,8 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: "http://localhost:5173", // explicit origin for credentials
+   
+    origin: "*", // explicit origin for credentials
     credentials: true
   })
 );
