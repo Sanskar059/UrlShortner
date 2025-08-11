@@ -45,7 +45,12 @@ export const login = async (req, res) => {
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "1d" });
 
         res
-            .cookie("token", token, { httpOnly: true, sameSite: "strict" })
+            .cookie("token", token, {
+  httpOnly: true,
+  sameSite: "none",  // allow cross-site cookie
+  secure: process.env.NODE_ENV === "production", // send cookie only over HTTPS in prod
+  maxAge: 24 * 60 * 60 * 1000, // 1 day expiration in ms (optional)
+})
             .send("Login successful");
     } catch (err) {
         res.status(500).send(err.message);
